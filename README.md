@@ -26,7 +26,6 @@ This project is a web scraping application that collects and compares prices of 
    - [Run the Application](#run-the-application)
 7. [Conclusion](#7-conclusion)
 8. [Important Notes](#8-Important-Notes)
-9. [Team](#9-Team)
 
 ## 1. Project Structure
 
@@ -139,12 +138,7 @@ This project provides a comprehensive solution for comparing prices of refurbish
 
 - Ensure compliance with privacy regulations and the terms of service of the target websites when scraping data.
 
-## 9. Team
-- 3153805: Federico Casotto
-- 3160964: Simone De Giorgi
-- 3174054: Andrea Facco
-- 3149606: Tommaso Magnani
-- 3161863: Gioele Nanni
+
 
 
 
