@@ -1,0 +1,68 @@
+/* styles.css */
+
+/* background color */
+body {
+    background-color: #F5F5F7;
+}
+
+/* Head Style */
+h1 {
+    color: #242426;
+    font-family: 'Helvetica', sans-serif;
+}
+
+/* th style */
+th {
+    color: #242426;
+    font-family: 'Helvetica', sans-serif;
+}
+
+
+form {
+    margin-top: 20px;
+}
+
+/* Search button */
+button {
+    background-color:#0066CC; 
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button .button {
+    color: #ffffff; /* Change link color */
+}
+
+/*drop down menu */
+select {
+    width: 200px;
+    padding: 5px;
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    background-color: #333;
+    color: #242426;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#priceTrend {
+    display: block;
+    width: 400; 
+    height: 300px;
+    margin: 0 auto;
+}
+
+/* Center all */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    text-align: center;
+}
