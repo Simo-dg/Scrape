@@ -29,7 +29,6 @@ This project is a web scraping application that collects and compares prices of 
 9. [Team](#9-Team)
 
 ## 1. Project Structure
-![Diagram](Diagram.png)
 
 
 The project consists of the following components:
