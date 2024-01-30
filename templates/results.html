@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <h1>Search result</h1>
+    {% if result is none %}
+        <p>No results.</p>
+    {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Storage</th>
+                    <th>Color</th>
+                    <th>Price</th>
+                    <th>Marketplace</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ result[0] }}</td>
+                    <td>{{ result[1] }} GB</td>
+                    <td>{{ result[2] }}</td>
+                    <td>{{ result[3] }} €</td>
+                    <td>{{ result[4] }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button><a href="{{ result[5] }}" target="_blank" class="button">Go to website</a></button>
+        <canvas id="priceTrend" ></canvas>
+    {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.min.js"></script>
+    <script>
+        fetch('/price-trend', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (Array.isArray(data.result)) {  
+                let ctx = document.getElementById('priceTrend').getContext('2d');
+                let chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: data.result.map(item => item.date),
+                        datasets: [{
+                            label: 'Price',
+                            data: data.result.map(item => item.price),
+                            fill: false,
+                            borderColor: 'rgb(4,104,191)',
+                            tension: 0.1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            x: {
+                                type: 'time',
+                                time: {
+                                    unit: 'day',
+                                    parser: 'YYYY-MM-DD'
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Date'
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Price'
+                                }
+                            }
+                        }
+                    }
+                });
+            } else {
+                console.error('Data is not an array:', data.result);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
+    
