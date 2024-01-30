@@ -1,4 +1,7 @@
 # Project Documentation: Scrape
+## Disclaimer
+
+This project is intended for educational purposes only. It demonstrates techniques for web scraping using Python. The code in this project should not be used to scrape websites that explicitly disallow web scraping in their terms of service. Always respect the terms of service of any website you scrape.
 
 ## Overview
 
